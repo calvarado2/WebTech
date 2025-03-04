@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 10</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(95, 178, 245);
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 2fr 2fr 1.75fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+          "cap cap cap"
+          "image image text"
+          "desc desc text"
+          "left right text";
+        gap: 5px;
+        max-width: 490px;
+        margin: 20px auto;
+        padding: 3px;
+        background-color: rgb(137, 133, 214);
+      }
+
+      .cap {
+        grid-area: cap;
+        padding: 1px;
+        color: black;
+        border: 1px solid black;
+      }
+
+      .imagecell {
+        grid-area: image;
+        border: 1px solid black;
+        padding: 1px;
+        border: 1px solid black;
+      }
+
+      .imagecell img {
+        width: 100%;
+        height: auto;
+      }
+
+      .description {
+        grid-area: desc;
+        padding: 2px;
+        border: 1px solid black;
+      }
+
+      .leftcol {
+        grid-area: left;
+        padding: 2px;
+        border: 1px solid black;
+      }
+
+      .rightcol {
+        grid-area: right;
+        padding: 2px;
+        border: 1px solid black;
+      }
+
+      .textcol {
+        grid-area: text;
+        padding: 2px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cap">The Truth About Elephants</div>
+
+      <div class="imagecell">
+        <img src="images/elephant.jpg" alt="Elephant" />
+      </div>
+
+      <div class="description">
+        A baby elephant hanging out with its mom, aunts, great-aunts, and maybe
+        even its grandmother.
+      </div>
+
+      <div class="leftcol">
+        It's hard to tell what goes through a baby elephant's mind when its mom
+        is trying to put it to sleep. Do you think baby elephants wake up in the
+        middle of the night and cry? Do their moms and dads take turns getting
+        up with them to rock them back to sleep? How do you rock an elephant,
+        anyway? And what about gorillas?
+      </div>
+
+      <div class="rightcol">
+        Today in the paper there's a story about a new gorilla that was just
+        born in Franklin Park. Its mom is holding on to it just like any proud
+        human mom. And I have to wonder if they go through as much trauma as
+        that human mom when it comes to sleep, food, and diapers, and running
+        into the street.
+      </div>
+
+      <div class="textcol">
+        Why is it so easy for them? Are they better parents? Do they just not
+        worry about every little detail? I've never known a gorilla to read and
+        study carefully seventeen books on bringing up baby gorillas. And they
+        seem to know just what to do. They never worry about spoiling their
+        little gorilla babies. They never worry about not having enough time
+        with them. Now, don't get me wrong, I'd rather be human than a gorilla
+        any day. Just imagine having to sit in a zoo. (Did you figure out yet
+        that while gorillas were on my mind, I could only find a picture of an
+        elephant?)
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 9</title>
+    <style>
+      body {
+        color: rgb(30, 0, 145);
+        margin: auto 35%;
+        font-family: Arial;
+        background-color: rgb(188, 46, 46);
+      }
+
+      h2 {
+        text-align: center;
+        color: black;
+      }
+
+      div {
+        margin: 5px;
+        width: 400px;
+        text-align: left;
+      }
+
+      #form {
+        background-color: rgb(199, 199, 199);
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Exercise 09 - HTML Form</h2>
+    </div>
+
+    <div id="form" ;>
+      <form action="https://oim.108122.xyz/form2" method="post">
+        <div>
+          <label for="Last Name">Last Name:</label>
+          <input
+            type="text"
+            id="Last Name"
+            name="Last Name"
+            placeholder="Last Name"
+          />
+        </div>
+
+        <div>
+          <label for="First Name">First Name:</label>
+          <input
+            type="text"
+            id="First Name"
+            name="First Name"
+            placeholder="First Name"
+          />
+        </div>
+
+        <div>
+          <label for="Email">Email:</label>
+          <input
+            type="text"
+            id="Email"
+            name="Email"
+            placeholder="Email Address"
+          />
+        </div>
+
+        <br />
+
+        <div>
+          Gender:
+          <label
+            >Male
+            <input type="radio" name="gender" value="male" />
+          </label>
+          <label
+            >Female
+            <input type="radio" name="gender" value="female" />
+          </label>
+        </div>
+
+        <br />
+
+        <div>My Favorite Topics Are:</div>
+
+        <div>
+          <input type="checkbox" id="HTML" name="Script" value="HTML" />
+          <label for="HTML">HTML</label>
+        </div>
+
+        <div>
+          <input type="checkbox" id="css" name="Script" value="CSS" />
+          <label for="CSS">CSS</label>
+        </div>
+
+        <div>
+          <input
+            type="checkbox"
+            id="JavaScript"
+            name="Script"
+            value="JavaScript"
+          />
+          <label for="Script">JavaScript</label>
+        </div>
+
+        <br />
+
+        <div>
+          <label for="Grade-select"
+            >Which grade do you expect to receive?</label
+          >
+
+          <select name="Grade" id="Grade-select">
+            <option value="A">A</option>
+            <option value="A-">A-</option>
+            <option value="B">B</option>
+            <option value="B-">B-</option>
+            <option value="C">C</option>
+            <option value="C-">C-</option>
+            <option value="D">D</option>
+            <option value="D-">D-</option>
+            <option value="F">F</option>
+          </select>
+        </div>
+
+        <br />
+
+        <div>
+          <label for="comments">Leave a Comment</label>
+        </div>
+        <div>
+          <textarea
+            id="comments"
+            name="comments"
+            rows="5"
+            cols="25"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>
+
+        <button type="submit">
+          <img src="images/mailbox.png" height="30" alt="submit button" />
+        </button>
+        <button type="reset">
+          <img src="images/reset.png" height="30" alt="Reset button" />
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

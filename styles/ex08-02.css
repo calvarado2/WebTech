@@ -1,0 +1,22 @@
+table {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial;
+  background-color: rgb(177, 7, 177);
+}
+tr td {
+  border: 1px black;
+  padding: 3px;
+  vertical-align: top;
+}
+
+.image .cap {
+  width: 70%;
+}
+.lastcolumn {
+  width: 30%;
+}
+.threefive {
+  width: 35%;
+}
