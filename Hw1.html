@@ -1,41 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Technologies - Carlos Alvarado</title>
+    <title>Homework 1</title>
+    <meta content="width=device-width, initial-scale=1.0" />
     <style>
+      body {
+        background-color: rgb(224, 249, 224);
+      }
+      #bodycontent {
+        margin-top: 10%;
+      }
 
-      
+      #navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgb(129, 167, 129);
+        z-index: 1;
+      }
+
+      .navbar {
+        font-size: larger;
+        text-align: right;
+        list-style-type: none;
+        li {
+          display: inline;
+          border: 1px solid;
+          padding: 3px;
+          margin-right: 1%;
+        }
+      }
+
+      .quotes {
+        color: rgb(12, 61, 11);
+        font-family: cursive;
+        font-size: 110%;
+        margin-right: 30%;
+        margin-left: 10px;
+      }
+
+      .headshot {
+        float: right;
+        margin-right: 25%;
+        border: 2px rgb(12, 61, 11) solid;
+      }
+
+      .bballpic {
+        float: right;
+        border: 2px rgb(12, 61, 11) solid;
+        height: 200px;
+        margin: 15px;
+      }
+
+      .backbutton {
+        border: 2px rgb(12, 61, 11) solid;
+        float: right;
+        margin: 50px;
+        margin-right: 50px;
+        height: 30px;
+      }
+
+      #logo {
+        z-index: 2;
+        position: fixed;
+        top: 5px;
+        left: 15px;
+      }
+
+      h3 {
+        text-align: right;
+        margin-right: 2%;
+      }
     </style>
   </head>
   <body>
-    <a id="top"></a>
-    <h1>All About Carlos</h1>
-    <hr />
-    <h2>Quick Links</h2>
-    <ul>
-      <li>About Me</li>
-      <li>My Interests</li>
-      <li>Contact</li>
-      <li>Portfolio</li>
-    </ul>
-    <hr />
-    <h2>About Me</h2>
-    <img src="images/picofme.JPG" alt="Professional Picture of Me" />
-    <p>Paragraph about me</p>
-    <p>Babson Journey and future plans</p>
+    <div id="logo">
+      <img src="Images/picofme.JPG" alt="Smiley Logo" height="100px" />
+    </div>
 
-    <h2>My Interests</h2>
-    <p>Talk about hobbies, be sure to highlight word and lead to site</p>
+    <div id="navigation">
+      <h3>Quick Links</h3>
+      <ul class="navbar">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#interests">My Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="sitemap.html">Portfolio</a></li>
+      </ul>
+    </div>
 
-    <h3>Contact Information</h3>
-    <p>Carlos Alvarado OIM 3690 Web Technologies</p>
-    <p><a href="mailto: calvarado@babson.edu">Email Me!</a></p>
-    <p><a href="https://github.com/calvarado2">GitHub Profile</a></p>
-    <p><a href="sitemap.html">Site Map</a></p>
+    <div id="bodycontent">
+      <h2 id="about">About Me</h2>
 
-    <hr />
-    <a href="#top">Go to Top of Page </a>
+      <p>My name is Carlos Alvarado. Paragraph about me</p>
+      <p>Babson Journey and future plans</p>
+
+      <!-- <p class="quotes">
+        “”
+        <br />
+        -
+        <br />
+        <br />
+        “”
+        <br />
+        -
+      </p> -->
+
+      <hr />
+
+      <h2 id="interests">My Interests</h2>
+
+      <p>
+        Talk about hobbies, be sure to highlight word and add image and lead to
+        site
+      </p>
+
+      <hr />
+      <h3 id="contact">Contact Information</h3>
+
+      <p>
+        Carlos Alvarado
+        <br />
+        Web Technologies: OIM3690
+      </p>
+
+      <p><a href="mailto: calvarado@babson.edu">Email Me!</a></p>
+      <p><a href="https://github.com/calvarado2">GitHub Profile</a></p>
+      <p><a href="sitemap.html">Site Map</a></p>
+
+      <br />
+    </div>
   </body>
 </html>

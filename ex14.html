@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 14</title>
+  </head>
+  <body>
+    <h1>Manipulating Images using JavaScript</h1>
+    <div>
+      <img
+        src="images/tiger1.jpg"
+        alt="Tiger 1"
+        title="Tiger is walking"
+        width="400"
+      />
+    </div>
+  </body>
+  <script>
+    function enlargeImage() {
+      const myImg = document.querySelector("img");
+      let t = myImg.width;
+      t = t + 25;
+      myImg.width = t;
+    }
+    document.querySelector("img").addEventListener("mouseover", function() {
+      enlargeImage();
+    });
+
+    function revertImage() {
+      const myImg = document.querySelector("img");
+
+      myImg.width = 400;
+    }
+    document.querySelector("img").addEventListener("mouseout", function() {
+      revertImage();
+    });
+  </script>
+</html>
