@@ -1,62 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Technologies - Carlos Alvarado</title>
+    <title>Homework 1</title>
+    <meta content="width=device-width, initial-scale=1.0" />
     <style>
+      body {
+        background-color: rgb(179, 106, 236);
+      }
+      #bodycontent {
+        color: white;
+        margin-top: 0%;
+      }
 
-      
+      #navigation {
+        position: relative;
+        width: 100%;
+        color: white;
+        background-color: rgb(125, 30, 240);
+        z-index: 1;
+      }
+
+      .navbar {
+        font-size: small;
+        text-align: center;
+        list-style-type: none;
+
+        li {
+          display: inline;
+          border: 1px solid;
+          padding: 1px;
+          background-color: rgb(230, 183, 249);
+        }
+      }
+
+      #images {
+        display: flex;
+        gap: 1150px;
+      }
+
+      h3 {
+        color: white;
+        text-align: center;
+        margin-right: 2%;
+      }
+
+      #contact {
+        text-align: left;
+      }
+      /* #about {
+      } */
     </style>
   </head>
   <body>
-    <a id="top"></a>
-    <h1>All About Carlos</h1>
-    <hr />
-    <h2>Quick Links</h2>
-    <ul>
-      <li>About Me</li>
-      <li>My Interests</li>
-      <li>Contact</li>
-      <li>Portfolio</li>
-    </ul>
-    <hr />
-    <h2>About Me</h2>
-    <img src="images/picofme.JPG" alt="Professional Picture of Me" />
-    <p>Paragraph about me</p>
-    <p>Babson Journey and future plans</p>
+    <div id="images">
+      <img src="Images/picofme.JPG" alt="Pic of Me" height="100px" />
+      <img src="Images/kliqabstract.png" alt="Abstract Logo" height="100px" />
+    </div>
 
-    <h2>My Interests</h2>
-    <p>Talk about hobbies, be sure to highlight word and lead to site</p>
+    <div id="navigation">
+      <h3>Quick Links</h3>
+      <ul class="navbar">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#interests">My Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="sitemap.html">Portfolio</a></li>
+      </ul>
+    </div>
 
-    <h3>Contact Information</h3>
-    <p>Carlos Alvarado OIM 3690: Web Technologies</p>
-    <p><a href="mailto: calvarado@babson.edu">Email Me!</a></p>
-    <p><a href="https://github.com/calvarado2">GitHub Profile</a></p>
-    <p><a href="sitemap.html">Site Map</a></p>
+    <div id="bodycontent">
+      <h2 id="about">About Carlos Alvarado</h2>
 
-    <hr />
-    <a href="#top">Go to Top of Page </a>
+      <p>
+        My name is Carlos Alvarado. I am from Chelsea, Massachusetts and have
+        lived there all my life. My family immigrated there from Honduras in the
+        80s and 90s. Their immigrant stories along with many others in Chelsea
+        have molded me into the man that I am today. While my parents placed
+        heavy emphasis on education when I was a child, it took me some time to
+        figure that out for myself. I always loved to learn but never realized
+        how much of a privilege it is to be able to learn. I attended Beacon
+        Academy, a school for underprivileged, innercity kids in Boston that
+        prepares them for private high schools and all that entails attending
+        those types of school. We gained both academic and social education.
+        Classes ranged from Algebra to Latin to "Life at a PWI" to name a few.
+        After leaving this school, I attended Milton Academy, a boarding school
+        where I spent 4 years. Being at this school, I was able to play varsity
+        sports and enjoyed my time on the soccer team as it built my sense of
+        camaraderie. Being away from home made my heart grow fonder for Chelsea
+        while also realizing there should be more kids like me experiencing the
+        life I had and I wanted to find a way to tangibly achieve this. That is
+        when I discovered Babson College.
+      </p>
+      <p>
+        As I finished my time in high school, I hoped to find purpose in my
+        actions, not wanting to waste time as the pandemic came to a close and
+        the world began opening up again. It wasn't until the end of my senior
+        year in High School when I realized where my passion was. After
+        rekindling my friendship with a childhood friend, I began working with
+        him to grow the clothing brand he was working, a brand named Kliq. After
+        seeing the backend of what goes into everything; from inception of an
+        idea to the rollout and everything inbetween, I fell in love. While
+        normally, I would have to choose between my passion and education,
+        coming to Babson allowed me to intertwine the two and allowed me to
+        develop the brand further than I would have been able to in any other
+        circumstance. My time here at Babson has been molded around both
+        developing my skills pertaining to strategy, consulting, and project
+        management while also pursuing experiences that would be applicable to
+        Kliq and my role as the COO of the brand. Beyond the courses and
+        experiences I have had here at Babson, the most important and
+        influential part would be the relationships I have built with my peers.
+        Following my freshman year, I felt I had not lived to the fullest which
+        prompted me to join Alpha Kappa Psi, the oldest and largest business
+        fraternity in the world. Being drawn in my that moniker, I hesitantly
+        joined and did not regret it. I was exposed to the most down to earth
+        and genuine people I had met at Babson and completely shattered my
+        perception of what someone needed to be like to succeed. Joining AKPsi
+        allowed me to build my confidence even greater while understanding the
+        importance of paying everything you are given forward. I was taken under
+        the wing of senior brothers who inspired me to continue the cycle and
+        serve as a mentor to younger members of the fraternity now that I am the
+        senior. Overall, my experience at Babson has allowed me to cut out the
+        unnecessary of my life while also reinforcing the type of impact and man
+        I want to be moving forward. My time here allowed me to understand what
+        my high school aspirations can tangibly look like and motivated me to
+        continue my pursuit of not only academic educational equality but
+        democratization of social capital as well.
+      </p>
+
+      <hr />
+
+      <h2 id="interests">My Interests</h2>
+
+      <p>
+        Growing up, I was extremely passionate about sports as my parents had me
+        try everything at least once before I decided it wasn't for me. I played
+        football, baseball, basketball, and soccer to name a few. After years of
+        experience and learning about each sport, I realized that my favorite
+        was soccer. I have been a Real Madrid supporter all my life and used to
+        dream of playing for the club as a child. After realizing that I would
+        not be the next Cristiano Ronaldo, I pivoted to my current passion for
+        fashion. (unintended rhyme!) This passion was sparked by my
+        aforementioned involvement in
+        <a href="https://www.kliqbrand.com/">Kliq</a> with my best friend
+        Javier. While I had always loved to dress myself and been intrigued by
+        sneakers and clothes, joining Kliq allowed for me to learn first-hand
+        about everything that intrigued me. I love the logistics that go into
+        planning a collection and because of this, I have fallen in love with
+        studying the rollouts of other businesses and brands. I have
+        romanticized the process in a way that my hobby has become my dream and
+        my passion. I have become a student of the industry, hoping to be a
+        sponge whenever possible.
+      </p>
+
+      <hr />
+      <h3 id="contact">Contact Information</h3>
+
+      <p>
+        Carlos Alvarado
+        <br />
+        Web Technologies: OIM3690
+      </p>
+
+      <p><a href="mailto: calvarado@babson.edu">Email Me!</a></p>
+      <p><a href="https://github.com/calvarado2">GitHub Profile</a></p>
+      <p><a href="sitemap.html">Site Map</a></p>
+
+      <br />
+    </div>
   </body>
 </html>
-<!-- <img
-      src="https://1000logos.net/wp-content/uploads/2020/09/Real-Madrid-logo.png"
-      alt="Logo for soccer team"
-      title="Real Madrid Logo"
-      height="250"
-    />
-    <p>
-      I chose
-      <a href="https://www.babson.edu/" target="_blank">Babson</a> because of
-      the opportunities in entrepreneurship and the scholarship I received.
-    </p>
-    <p>
-      My favorite sport is <strong>soccer</strong>. My favorite team is
-      <a href="https://www.realmadrid.com/en-US" target="_blank">Real Madrid</a>
-      , sorry professor! Hala Madrid!
-    </p>
-    <img
-      src="images/championsleaguetrophy.jpeg"
-      alt="Trophy Picture"
-      height="250"
-    /> -->

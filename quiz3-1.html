@@ -1,0 +1,194 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Quiz 3 - Question 1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 1.2rem;
+      }
+
+      h1 {
+        padding: 20px;
+        text-align: center;
+        background-color: #333333;
+        color: #f4f4f4;
+      }
+
+      div {
+        width: 80%;
+        margin: 10px auto;
+      }
+
+      li {
+        margin: 10px;
+      }
+
+      button {
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border-radius: 3px;
+        background-color: #333333;
+        color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">Quiz 3 - Question 1</h1>
+    <div>
+      <p>Use internal JavaScript to implement the features below:</p>
+      <ul>
+        <li>
+          When you click the DARK button, the background color of
+          <code>h1</code> changes to black and the color of text changes to
+          white.
+        </li>
+        <li>
+          When you click the LIGHT button, the background color of
+          <code>h1</code> changes to lightgray and the color of text changes to
+          black.
+        </li>
+        <li>
+          (Optional) Change other elements in the page according to the selected
+          color scheme and/or highlight the selected button.
+        </li>
+      </ul>
+      <div>
+        Color Scheme:
+        <button id="dark-btn">DARK</button>
+        <button id="light-btn">LIGHT</button>
+      </div>
+    </div>
+
+    <script>
+      function lighten() {
+        document.querySelector("#light-btn").style.backgroundColor =
+          "lightgray";
+        document.querySelector("#light-btn").style.color = "black";
+        console.log("worked!");
+      }
+
+      function darken() {
+        document.querySelector("#dark-btn").style.backgroundColor = "black";
+        document.querySelector("#dark-btn").style.color = "white";
+        console.log("worked!");
+      }
+
+      let dbtn = document.querySelector("#dark-btn");
+      dbtn.addEventListener("click", function () {
+        darken();
+      });
+      let lbtn = document.querySelector("#light-btn");
+      lbtn.addEventListener("click", function () {
+        lighten();
+      });
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Quiz 3 - Question 1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 1.2rem;
+      }
+
+      h1 {
+        padding: 20px;
+        text-align: center;
+        background-color: #333333;
+        color: #f4f4f4;
+      }
+
+      div {
+        width: 80%;
+        margin: 10px auto;
+      }
+
+      li {
+        margin: 10px;
+      }
+
+      button {
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border-radius: 3px;
+        background-color: #333333;
+        color: #f4f4f4;
+      }
+
+      .active {
+        background-color: lightgray;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">Quiz 3 - Question 1</h1>
+    <div>
+      <p>Use internal JavaScript to implement the features below:</p>
+      <ul>
+        <li>
+          When you click the DARK button, the background color of
+          <code>h1</code> changes to black and the color of text changes to
+          white.
+        </li>
+        <li>
+          When you click the LIGHT button, the background color of
+          <code>h1</code> changes to lightgray and the color of text changes to
+          black.
+        </li>
+        <li>
+          (Optional) Change other elements in the page according to the selected
+          color scheme and/or highlight the selected button.
+        </li>
+      </ul>
+      <div>
+        Color Scheme:
+        <button id="dark-btn">DARK</button>
+        <button id="light-btn">LIGHT</button>
+      </div>
+    </div>
+
+    <script>
+      function setDarkMode() {
+        document.getElementById("heading").style.backgroundColor = "black";
+        document.getElementById("heading").style.color = "white";
+        document.getElementById("dark-btn").classList.add("active");
+        document.getElementById("light-btn").classList.remove("active");
+      }
+
+      function setLightMode() {
+        document.getElementById("heading").style.backgroundColor = "lightgray";
+        document.getElementById("heading").style.color = "black";
+        document.getElementById("light-btn").classList.add("active");
+        document.getElementById("dark-btn").classList.remove("active");
+      }
+
+      document.getElementById("dark-btn").addEventListener("click", setDarkMode);
+      document.getElementById("light-btn").addEventListener("click", setLightMode);
+    </script>
+  </body>
+</html>

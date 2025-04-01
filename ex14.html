@@ -22,8 +22,9 @@
       let t = myImg.width;
       t = t + 25;
       myImg.width = t;
+      console.log(t);
     }
-    document.querySelector("img").addEventListener("mouseover", function() {
+    document.querySelector("img").addEventListener("mouseover", function () {
       enlargeImage();
     });
 
@@ -32,7 +33,7 @@
 
       myImg.width = 400;
     }
-    document.querySelector("img").addEventListener("mouseout", function() {
+    document.querySelector("img").addEventListener("mouseout", function () {
       revertImage();
     });
   </script>
