@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <title>ex17 - Temperature Converter</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+
+      form {
+        font-weight: bold;
+        padding: 10px;
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: Silver;
+      }
+
+      div {
+        text-align: center;
+      }
+
+      input {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Celsius Fahrenheit Converter</h1>
+    </div>
+    <form action="" id="temp-form" method="">
+      <div>
+        <label
+          >Celsius:
+          <input id="cel" name="cel" size="6" type="text" />
+        </label>
+        <label
+          >Fahrenheit:
+          <input id="far" name="far" size="6" type="text" />
+        </label>
+      </div>
+      <div>
+        <input id="convert-btn" type="button" value="Convert" />
+        <input type="reset" value="Clear" />
+      </div>
+    </form>
+  </body>
+
+  <script>
+    const convertbtn = document.getElementById("convert-btn");
+    const celInput = document.getElementById("cel");
+    const farInput = document.getElementById("far");
+
+    convertbtn.addEventListener("click", function () {
+      const celval = celInput.value.trim();
+      const farval = farInput.value.trim();
+
+      if (celval !== "" && farval !== "") {
+        alert("Only insert a value on one side");
+      } else if (celval !== "" && isNaN(celval)) {
+        alert("Insert a valid value in Celsius");
+      } else if (farval !== "" && isNaN(farval)) {
+        alert("Insert a valid value in Fahrenheit");
+      } else if (celval !== "") {
+        farInput.value = (parseFloat(celval) * 9) / 5 + 32;
+      } else if (farval !== "") {
+        celInput.value = ((parseFloat(farval) - 32) * 5) / 9;
+      } else {
+        alert("Please enter a value to convert");
+      }
+    });
+  </script>
+</html>

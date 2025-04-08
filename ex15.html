@@ -24,17 +24,17 @@
   </head>
   <body>
     <h1>Who is your favorite Celtics Player?</h1>
+    <button id="prompt">Start Here</button>
     <img
       src="images/Celtics.png"
       alt="Click here to choose the image"
       title="Celtics"
+      id="shownImg"
     />
+    <!-- <h2 id="shownName"></h2> -->
 
     <div>
-      <input type="text" placeholder="Favorite Player" />
-    </div>
-    <div>
-      Enter the Last Name of your favorite Celtics player:
+      Pick from this List:
       <ul>
         <li>Jaylen Brown</li>
         <li>Jayson Tatum</li>
@@ -43,19 +43,34 @@
       </ul>
     </div>
     <script>
-      function typedname() {}
-      // if (condition1) {
-      //   <img src="images/jaylen-brown.png" alt="Jaylen Brown">
-      // } else if (condition2) {
-      //   <img src="images/jayson-tatum.png" alt="Jayson Tatum">
-      // } else if (condition3) {
-      //   <img src="images/al-horford.png" alt="Al Horford">
-      // } else if (condition4) {
-      //   <img src="images/payton-pritchard.png" alt="Payton Pritchard">
-      // }
-      // else {
-      //   console.log("ERROR! Try Again.");
-      // }
+      const button = document.getElementById("prompt");
+      const shownImg = document.getElementById("shownImg");
+
+      button.addEventListener("click", function () {
+        const name = window.prompt(
+          "Enter the Last Name of your favorite Celtics player from the list"
+        );
+
+        if (name == "Brown") {
+          shownImg.src = "images/jaylen-brown.png";
+          alert("Got it!");
+        }
+        if (name == "Tatum") {
+          shownImg.src = "images/jayson-tatum.png";
+          alert("Got it!");
+        }
+        if (name == "Horford") {
+          shownImg.src = "images/al-horford.png";
+          alert("Got it!");
+        }
+        if (name == "Pritchard") {
+          shownImg.src = "images/payton-pritchard.png";
+          alert("Got it!");
+        } 
+        else {
+          alert("Error! Try again.");
+        }
+      });
     </script>
   </body>
 </html>
