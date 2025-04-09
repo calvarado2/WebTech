@@ -6,15 +6,55 @@
     <title>Exercise 16</title>
   </head>
   <body>
-    <form id="calc" action="">
-      <div>x =<input type="text" name="x" /></div>
-      <div>y =<input type="text" name="y" /></div>
-      <button></button>
+    <form id="calcform" action="">
+      <hr />
+      <div id="xinp">
+        First Number:<input type="text" name="first" id="first" />
+      </div>
+      <hr />
+      <div>
+        <label for="Function">Select Operator</label
+        ><select name="Grade" id="function">
+          <option value=""></option>
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="x">x</option>
+          <option value="/">/</option>
+        </select>
+      </div>
+      <hr />
+      <div id="yinp">
+        Second Number:<input type="text" name="second" id="second" />
+      </div>
+      <button id="calcbtn">Calculate</button>
     </form>
+    <hr />
+    <div id="result">Result:</div>
+    <hr />
     <script>
-      function calculate(event) {event.preventDefault();}
-      const btn = document.querySelector("button");
-      btn.addEventListener("click");
+      document
+        .querySelector("#calcform")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const x = parseFloat(document.querySelector("#first").value);
+          const y = parseFloat(document.querySelector("#second").value);
+          const operation = document.querySelector("#function").value;
+
+          let resultText;
+          if (operation === "+") {
+            resultText = x + y;
+          } else if (operation === "-") {
+            resultText = x - y;
+          } else if (operation === "x") {
+            resultText = x * y;
+          } else if (operation === "/") {
+            resultText = x / y;
+          } else {
+            resultText = "Try again.";
+          }
+          document.getElementById("result").textContent =
+            "Answer:" + resultText;
+        });
     </script>
   </body>
 </html>
