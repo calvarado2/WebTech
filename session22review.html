@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Loop Review</title>
+  </head>
+  <body>
+    <h1 class="demo">For Demo</h1>
+    <h2>Exercise</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi ipsam
+      tempore ad animi! A sint atque rem asperiores quidem autem quam deserunt
+      facere inventore, eius quae facilis rerum et fuga!
+    </p>
+    <p class="demo">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem
+      cupiditate ratione quae quas nulla possimus. Repellendus quo at optio illo
+      sint nam eveniet, dolorem dicta aspernatur, ipsum amet maiores aut.
+    </p>
+    <button>Change</button>
+  </body>
+  <script>
+    function change() {
+      const demoEl = document.querySelectorAll(".demo");
+      for (let i = 0; i < demoEl.length; i++) {
+        demoEl[i].style.color = "red";
+      }
+    }
+    document.querySelector("button").addEventListener("click", change);
+  </script>
+</html>
