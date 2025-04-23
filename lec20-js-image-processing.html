@@ -13,6 +13,8 @@
       <button id="btn-1">Red Filter</button>
       <button id="btn-2">Grayscale</button>
       <button id="btn-3">Negative</button>
+      <button id="btn-4">Brighter</button>
+
       <h2 id="rgb-info"></h2>
     </div>
 
@@ -105,10 +107,22 @@
           }
           ctx.putImageData(imgData, 0, 0);
         }
+        function brighter() {
+          ctx.drawImage(image, 0, 0);
+          const imgData = ctx.getImageData(myCanvas.height);
+          for (let i = 0; i < imgData.data.length; i += 4) {
+            const inc = 50; // increase brightness by 50
+            imgData.data[i] += Math.min(255, imgData.data[i] + inc); //
+            imgData.data[i + 1] += Math.min(255, imgData.data[i + 1] + inc);
+            imgData.data[i + 2] += Math.min(255, imgData.data[i + 2] + inc);
+          }
+          ctx.putImageData(imgData, 0, 0);
+        }
 
         document.getElementById("btn-1").addEventListener("click", redFilter);
         document.getElementById("btn-2").addEventListener("click", grayscale);
         document.getElementById("btn-3").addEventListener("click", negative);
+        document.getElementById("btn-4").addEventListener("click", brighter);
       });
     </script>
   </body>
