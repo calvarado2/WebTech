@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header>
+        <h1>Sponsors</h1>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="signups.html" class="dropbtn">Sign Ups</a>
+                    <div class="dropdown-content">
+                        <a href="signups.html#team-signup">Team Sign Up</a>
+                        <a href="signups.html#vendor-signup">Vendor Sign Up</a>
+                        <a href="signups.html#volunteer-signup">Volunteer Sign Up</a>
+                    </div>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="sponsors-section">
+        <h2> Our Sponsors!</h2>
+        <p>We are grateful for the support of our sponsors who make KliqFest possible!</p>
+        <ul>
+            <li><strong>Kliq Brand</strong> - The main sponsor of KliqFest.</li>
+            <li><strong>Local Businesses</strong> - Supporting the community and local vendors.</li>
+            <li><strong>Artisans</strong> - Showcasing local art and culture.</li>
+        </ul>
+        <img src="images/sponsorpics.jpeg" alt="Sponsorship Banner" style="width: 100%; height: auto;">
+        <img src="images/sponsortiers.png" alt="Sponsorship Tier list" style="width: 100%; height: auto;">
+        
+        <p>If you would like to become a sponsor, please contact us!</p>
+    </section>
+    <script>
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('mouseover', function() {
+                this.classList.add('hovered');
+            anchor.addEventListener('mouseout', function() {
+                this.classList.remove('hovered');
+            });
+        });
+        function setupDarkModeToggle() {
+
+var toggleButton = document.createElement('button');
+toggleButton.id = 'dark-mode-toggle';
+toggleButton.textContent = 'Toggle Dark Mode';
+toggleButton.style.position = 'fixed';
+toggleButton.style.top = '10px';
+toggleButton.style.right = '10px';
+toggleButton.style.padding = '8px';
+toggleButton.style.cursor = 'pointer';
+
+document.body.appendChild(toggleButton);
+
+
+var darkModeStyle = document.createElement('style');
+darkModeStyle.id = 'dark-mode-styles';
+darkModeStyle.textContent = `
+  body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  body.dark-mode header, body.dark-mode footer {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+  }
+  body.dark-mode a {
+    color: #81d4fa;
+  }
+  body.dark-mode input, body.dark-mode select, body.dark-mode textarea {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+  body.dark-mode button {
+    background-color: #2c3e50;
+    color: #e0e0e0;
+  }
+  body.dark-mode nav ul li a {
+    color: #e0e0e0;
+  }
+`;
+document.head.appendChild(darkModeStyle);
+
+
+var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+
+if (isDarkMode) {
+  document.body.classList.add('dark-mode');
+  toggleButton.textContent = 'Toggle Light Mode';
+}
+
+
+function toggleDarkMode() {
+  if (document.body.classList.contains('dark-mode')) {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'false');
+    toggleButton.textContent = 'Toggle Dark Mode';
+  } else {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'true');
+    toggleButton.textContent = 'Toggle Light Mode';
+  }
+}
+
+toggleButton.onclick = toggleDarkMode;
+}
+
+window.onload = setupDarkModeToggle;
+  });
+    </script>
+    <footer>
+        <p>&copy; 2025 KliqFest. All rights reserved.</p>
+        <a href="https://kliqbrand.com">Visit Kliq Brand</a>
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+    </footer>
+</body>
+</html>

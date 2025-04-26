@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header>
+        <h1>Sign Ups</h1>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="signups.html" class="dropbtn">Sign Ups</a>
+                    <div class="dropdown-content">
+                        <a href="signups.html#team-signup">Team Sign Up</a>
+                        <a href="signups.html#vendor-signup">Vendor Sign Up</a>
+                        <a href="signups.html#volunteer-signup">Volunteer Sign Up</a>
+                    </div>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="signups-section">
+    <h2> Sign Ups Here</h2>
+    <h3> Team Sign Up!</h3>
+    <form id="team-signup" method="post">
+        <label for="team-name">Enter Team Name:</label>
+        <input type="text" id="team-name" name="Enter-Team-Name" placeholder="Enter Team Name" required>
+        
+        <label for="team-leader">Team Leader Name:</label>
+        <input type="text" id="team-leader" name="Team-Leader-Name" placeholder="Team Leader Name" required>
+        
+        <label for="vendor-email">Email:</label>
+        <input type="email" id="vendor-email" name="Email" placeholder="Enter email here" required>
+        <label for="vendor-phone-number">Phone Number:</label>
+        <input type="tel" id="vendor-phone-number" name="Phone-Number" placeholder="Enter Phone Number" required>
+        
+        <button type="submit">Submit Form</button>
+    </form>
+    <form id="vendor-signup">
+        <h3> Vendor's Sing up Here!</h3>
+        <label for="Vendor-Name">Enter Vendor Name Here:</label>
+        <input type="text" id="vendor-name" name="Vendor-Name" placeholder="Enter Vendor Name" required>
+        <label for="contact-name"> Enter Contact Name Here:</label>
+        <input type="text" id="contact-name" name="contact-Name" placeholder="Enter Your Contact Name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" placeholder="Enter email here" required>
+        <label for="phone-number">Phone Number:</label>
+        <input type="tel" id="phone-number" name="Phone-Number" placeholder="Enter Phone Number" required>
+        <label for="vendor-type">Vendor Type:</label>
+        <select id="vendor-type" name="Vendor-Type" required>
+            <option value="food">Food</option>
+            <option value="art">Art</option>
+            <option value="clothing">Clothing</option>
+            <option value="other">Other</option>
+        </select>
+        <button type="submit">Submit Form</button>
+    </form> 
+    <form id="volunteer-signup">
+        <h3> Volunteer's Sign Up Here!</h3>
+        <label for="volunteer-name">Enter Your Name:</label>
+        <input type="text" id="volunteer-name" name="Volunteer-Name" placeholder="Enter Your Name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" placeholder="Enter email here" required>
+        
+        <label for="phone-number">Phone Number:</label>
+        <input type="tel" id="phone-number" name="Phone-Number" placeholder="Enter Phone Number" required>
+        <label for="availability">Availability:</label>
+        <select id="availability" name="Availability" required>
+            <option value="full-day">Full Day</option>
+            <option value="half-day">Half Day</option>
+            <option value="weekend">Weekend Only</option>
+            <option value="weekday">Weekday Only</option>
+        </select>
+        <label for="skills">Skills/Experience:</label>
+        <textarea id="skills" name="Skills-Experience" placeholder="Describe your skills or experience" rows="4" required></textarea>
+        <label for="comments">Additional Comments:</label>
+        <textarea id="comments" name="Comments" placeholder="Any additional comments or requests" rows="4"></textarea>
+        <button type="submit">Submit Form</button>
+    </form>
+    </section>
+<script>
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('mouseover', function() {
+            this.style.fontSize = '24px';
+            this.style.color = '#3498db';
+            this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+        });
+
+        anchor.addEventListener('mouseout', function() {
+            this.style.fontSize = '16px';
+            this.style.color = '';
+            this.style.boxShadow = '';
+        });
+    });
+
+    document.querySelectorAll('section').forEach(section => {
+        section.addEventListener('mouseover', function() {
+            this.style.backgroundColor = '#f0f0f0';
+        });
+
+        section.addEventListener('mouseout', function() {
+            this.style.backgroundColor = '';
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        function validateForm(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll('input, select, textarea');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.nextElementSibling.innerText = input.validationMessage;
+                    isValid = false;
+                } else {
+                    input.nextElementSibling.innerText = '';
+                }
+            });
+
+            return isValid;
+        }
+
+        ['team-signup', 'vendor-signup', 'volunteer-signup'].forEach(formId => {
+            const form = document.getElementById(formId);
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                if (validateForm(formId)) {
+                    alert('Form submitted successfully!');
+                }
+            });
+
+            form.querySelectorAll('input, select, textarea').forEach(input => {
+                const feedback = document.createElement('span');
+                feedback.className = 'feedback';
+                input.parentNode.insertBefore(feedback, input.nextSibling);
+            });
+        });
+
+      
+function setupDarkModeToggle() {
+
+  var toggleButton = document.createElement('button');
+  toggleButton.id = 'dark-mode-toggle';
+  toggleButton.textContent = 'Toggle Dark Mode';
+  toggleButton.style.position = 'fixed';
+  toggleButton.style.top = '10px';
+  toggleButton.style.right = '10px';
+  toggleButton.style.padding = '8px';
+  toggleButton.style.cursor = 'pointer';
+
+  document.body.appendChild(toggleButton);
+  
+  
+  var darkModeStyle = document.createElement('style');
+  darkModeStyle.id = 'dark-mode-styles';
+  darkModeStyle.textContent = `
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-mode header, body.dark-mode footer {
+      background-color: #1f1f1f;
+      color: #e0e0e0;
+    }
+    body.dark-mode a {
+      color: #81d4fa;
+    }
+    body.dark-mode input, body.dark-mode select, body.dark-mode textarea {
+      background-color: #333;
+      color: #e0e0e0;
+      border: 1px solid #555;
+    }
+    body.dark-mode button {
+      background-color: #2c3e50;
+      color: #e0e0e0;
+    }
+    body.dark-mode nav ul li a {
+      color: #e0e0e0;
+    }
+  `;
+  document.head.appendChild(darkModeStyle);
+  
+
+  var isDarkMode = localStorage.getItem('darkMode') === 'true';
+  
+
+  if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+    toggleButton.textContent = 'Toggle Light Mode';
+  }
+  
+  
+  function toggleDarkMode() {
+    if (document.body.classList.contains('dark-mode')) {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', 'false');
+      toggleButton.textContent = 'Toggle Dark Mode';
+    } else {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'true');
+      toggleButton.textContent = 'Toggle Light Mode';
+    }
+  }
+  
+  toggleButton.onclick = toggleDarkMode;
+}
+
+window.onload = setupDarkModeToggle;
+    });
+</script>
+
+ 
+    <footer>
+        <p>&copy; 2025 KliqFest. All rights reserved.</p>
+        <a href="https://kliqbrand.com">Visit Kliq Brand</a>
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </div>
+
+    </footer>
+</body>
+</html>

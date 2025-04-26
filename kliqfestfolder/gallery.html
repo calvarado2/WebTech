@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header>
+    <h1>Gallery</h1>
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="signups.html" class="dropbtn">Sign Ups</a>
+                <div class="dropdown-content">
+                    <a href="signups.html#team-signup">Team Sign Up</a>
+                    <a href="signups.html#vendor-signup">Vendor Sign Up</a>
+                    <a href="signups.html#volunteer-signup">Volunteer Sign Up</a>
+                </div>
+            </li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="sponsors.html">Sponsors</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p>Check out the amazing moments captured during KliqFest!</p>
+        <div class="gallery-images">
+            <img src="images/kliqpic1.jpeg" alt="KliqFest Image 1">
+            <img src="images/kliqpic2.jpeg" alt="KliqFest Image 2">
+            <img src="images/kliqpic3.jpeg" alt="KliqFest Image 3">
+            <img src="images/kliqpic4.jpeg" alt="KliqFest Image 4">
+            <img src="images/kliqpic5.jpeg" alt="KliqFest Image 5">
+            <img src="images/kliqpic6.jpeg" alt="KliqFest Image 6">
+        </div>
+        <p>More images coming soon!</p>
+    </section>
+    <script>
+       // Fix the navigation menu hover effects
+document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('mouseover', function() {
+        this.style.fontSize = '24px';
+        this.style.color = '#3498db';
+        this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    });
+    anchor.addEventListener('mouseout', function() {
+        this.style.fontSize = '16px';
+        this.style.color = '#000';
+        this.style.boxShadow = 'none';
+    });
+});
+
+// Dark mode toggle function
+function setupDarkModeToggle() {
+    var toggleButton = document.createElement('button');
+    toggleButton.id = 'dark-mode-toggle';
+    toggleButton.textContent = 'Toggle Dark Mode';
+    toggleButton.style.position = 'fixed';
+    toggleButton.style.top = '10px';
+    toggleButton.style.right = '10px';
+    toggleButton.style.padding = '8px';
+    toggleButton.style.cursor = 'pointer';
+
+    document.body.appendChild(toggleButton);
+
+    var darkModeStyle = document.createElement('style');
+    darkModeStyle.id = 'dark-mode-styles';
+    darkModeStyle.textContent = `
+      body.dark-mode {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      body.dark-mode header, body.dark-mode footer {
+        background-color: #1f1f1f;
+        color: #e0e0e0;
+      }
+      body.dark-mode a {
+        color: #81d4fa;
+      }
+      body.dark-mode input, body.dark-mode select, body.dark-mode textarea {
+        background-color: #333;
+        color: #e0e0e0;
+        border: 1px solid #555;
+      }
+      body.dark-mode button {
+        background-color: #2c3e50;
+        color: #e0e0e0;
+      }
+      body.dark-mode nav ul li a {
+        color: #e0e0e0;
+      }
+    `;
+    document.head.appendChild(darkModeStyle);
+
+    var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+      toggleButton.textContent = 'Toggle Light Mode';
+    }
+
+    function toggleDarkMode() {
+      if (document.body.classList.contains('dark-mode')) {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'false');
+        toggleButton.textContent = 'Toggle Dark Mode';
+      } else {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'true');
+        toggleButton.textContent = 'Toggle Light Mode';
+      }
+    }
+
+    toggleButton.onclick = toggleDarkMode;
+}
+
+
+function setupImageSlideshow() {
+    
+    var galleryDiv = document.querySelector('.gallery-images');
+    var images = galleryDiv.querySelectorAll('img');
+    var currentImageIndex = 0;
+    
+
+    for (var i = 1; i < images.length; i++) {
+        images[i].style.display = 'none';
+    }
+    
+    
+    var prevButton = document.createElement('button');
+    prevButton.textContent = 'Previous';
+    prevButton.id = 'prev-button';
+    prevButton.style.margin = '10px';
+    
+    var nextButton = document.createElement('button');
+    nextButton.textContent = 'Next';
+    nextButton.id = 'next-button';
+    nextButton.style.margin = '10px';
+    
+    
+    var buttonContainer = document.createElement('div');
+    buttonContainer.style.textAlign = 'center';
+    buttonContainer.style.margin = '20px 0';
+    buttonContainer.appendChild(prevButton);
+    buttonContainer.appendChild(nextButton);
+    
+ 
+    galleryDiv.parentNode.insertBefore(buttonContainer, galleryDiv.nextSibling);
+    
+  
+    function showNextImage() {
+        images[currentImageIndex].style.display = 'none';
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].style.display = 'block';
+    }
+ 
+    function showPrevImage() {
+        images[currentImageIndex].style.display = 'none';
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        images[currentImageIndex].style.display = 'block';
+    }
+    
+ 
+    nextButton.onclick = showNextImage;
+    prevButton.onclick = showPrevImage;
+    
+    
+    var slideshowInterval = setInterval(showNextImage, 3000);
+ 
+    galleryDiv.onmouseover = function() {
+        clearInterval(slideshowInterval);
+    };
+    
+  
+    galleryDiv.onmouseout = function() {
+        slideshowInterval = setInterval(showNextImage, 3000);
+    };
+    
+    // Update gallery CSS for better display
+    galleryDiv.style.position = 'relative';
+    galleryDiv.style.height = '400px';
+    galleryDiv.style.width = '100%';
+    galleryDiv.style.display = 'flex';
+    galleryDiv.style.justifyContent = 'center';
+    galleryDiv.style.alignItems = 'center';
+    
+  
+    for (var i = 0; i < images.length; i++) {
+        images[i].style.maxHeight = '400px';
+        images[i].style.maxWidth = '100%';
+        images[i].style.objectFit = 'contain';
+    }
+}
+
+
+window.onload = function() {
+    setupDarkModeToggle();
+    setupImageSlideshow();
+};
+    </script>
+    <footer>
+        <p>&copy; 2025 KliqFest. All rights reserved.</p>
+        <a href="https://kliqbrand.com">Visit Kliq Brand</a>
+</body>
+</html>

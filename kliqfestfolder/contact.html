@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us!</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a  href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="signups.html" class="dropbtn">Sign Ups</a>
+                    <div class="dropdown-content">
+                        <a href="signups.html#team-signup">Team Sign Up</a>
+                        <a href="signups.html#vendor-signup">Vendor Sign Up</a>
+                        <a href="signups.html#volunteer-signup">Volunteer Sign Up</a>
+                    </div>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Have questions,testimonies or comments? Reach out to us!</p>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" name="name" placeholder=" Enter your Name">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder=" Enter your Email">
+            <label for="message">Message:</label>
+            <textarea name="message" placeholder="Your Message"></textarea>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" name="phone" placeholder=" Enter your Phone Number">
+            <label for="subject">Subject:</label>
+            <select name="subject">
+                <option value="general">General Question</option>
+                <option value="sponsorship">Sponsorship</option>
+                <option value="vendor">Vendor Question</option>
+                <option value="volunteer">Volunteer Opportunity</option>
+                <option value="other">Other</option>
+            </select>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    <script> 
+
+      // Fix the navigation menu hover effects
+document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('mouseover', function() {
+        this.style.fontSize = '24px';
+        this.style.color = '#3498db';
+        this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+    });
+    anchor.addEventListener('mouseout', function() {
+        this.style.fontSize = '16px';
+        this.style.color = '#000';
+        this.style.boxShadow = 'none';
+    });
+});
+
+// Dark mode toggle function
+function setupDarkModeToggle() {
+    var toggleButton = document.createElement('button');
+    toggleButton.id = 'dark-mode-toggle';
+    toggleButton.textContent = 'Toggle Dark Mode';
+    toggleButton.style.position = 'fixed';
+    toggleButton.style.top = '10px';
+    toggleButton.style.right = '10px';
+    toggleButton.style.padding = '8px';
+    toggleButton.style.cursor = 'pointer';
+
+    document.body.appendChild(toggleButton);
+
+    var darkModeStyle = document.createElement('style');
+    darkModeStyle.id = 'dark-mode-styles';
+    darkModeStyle.textContent = `
+      body.dark-mode {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      body.dark-mode header, body.dark-mode footer {
+        background-color: #1f1f1f;
+        color: #e0e0e0;
+      }
+      body.dark-mode a {
+        color: #81d4fa;
+      }
+      body.dark-mode input, body.dark-mode select, body.dark-mode textarea {
+        background-color: #333;
+        color: #e0e0e0;
+        border: 1px solid #555;
+      }
+      body.dark-mode button {
+        background-color: #2c3e50;
+        color: #e0e0e0;
+      }
+      body.dark-mode nav ul li a {
+        color: #e0e0e0;
+      }
+      .error {
+        color: #ff6b6b;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      body.dark-mode .error {
+        color: #ff8a8a;
+      }
+      .input-error {
+        border: 2px solid #ff6b6b !important;
+      }
+    `;
+    document.head.appendChild(darkModeStyle);
+
+    var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+      toggleButton.textContent = 'Toggle Light Mode';
+    }
+
+    function toggleDarkMode() {
+      if (document.body.classList.contains('dark-mode')) {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'false');
+        toggleButton.textContent = 'Toggle Dark Mode';
+      } else {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'true');
+        toggleButton.textContent = 'Toggle Light Mode';
+      }
+    }
+
+    toggleButton.onclick = toggleDarkMode;
+}
+
+// Form validation function
+function setupFormValidation() {
+    var contactForm = document.getElementById('contact-form');
+    
+    // Create error message elements for each field
+    var formInputs = contactForm.querySelectorAll('input, textarea, select');
+    
+    // Add error message elements after each input
+    formInputs.forEach(function(input) {
+        var errorElement = document.createElement('div');
+        errorElement.className = 'error';
+        errorElement.id = input.name + '-error';
+        errorElement.style.display = 'none';
+        input.parentNode.insertBefore(errorElement, input.nextSibling);
+    });
+    
+    // Form validation function
+    function validateForm(event) {
+        event.preventDefault();
+        var isValid = true;
+        
+        // Reset all error messages
+        var errorElements = contactForm.querySelectorAll('.error');
+        errorElements.forEach(function(element) {
+            element.style.display = 'none';
+        });
+        
+        // Reset input borders
+        formInputs.forEach(function(input) {
+            input.classList.remove('input-error');
+        });
+        
+        // Validate name (required, at least 2 characters)
+        var nameInput = contactForm.querySelector('[name="name"]');
+        if (!nameInput.value || nameInput.value.trim().length < 2) {
+            document.getElementById('name-error').textContent = 'Please enter a valid name (at least 2 characters)';
+            document.getElementById('name-error').style.display = 'block';
+            nameInput.classList.add('input-error');
+            isValid = false;
+        }
+        
+        // Validate email (required, must be valid email format)
+        var emailInput = contactForm.querySelector('[name="email"]');
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailInput.value || !emailPattern.test(emailInput.value)) {
+            document.getElementById('email-error').textContent = 'Please enter a valid email address';
+            document.getElementById('email-error').style.display = 'block';
+            emailInput.classList.add('input-error');
+            isValid = false;
+        }
+        
+        // Validate message (required, at least 10 characters)
+        var messageInput = contactForm.querySelector('[name="message"]');
+        if (!messageInput.value || messageInput.value.trim().length < 10) {
+            document.getElementById('message-error').textContent = 'Please enter a message (at least 10 characters)';
+            document.getElementById('message-error').style.display = 'block';
+            messageInput.classList.add('input-error');
+            isValid = false;
+        }
+        
+        // Validate phone (optional, but if provided must be valid format)
+        var phoneInput = contactForm.querySelector('[name="phone"]');
+        if (phoneInput.value) {
+            // Basic US phone number format (XXX-XXX-XXXX or various formats)
+            var phonePattern = /^[\d\s\-\(\)\.]+$/;
+            if (!phonePattern.test(phoneInput.value) || phoneInput.value.replace(/\D/g, '').length < 10) {
+                document.getElementById('phone-error').textContent = 'Please enter a valid phone number';
+                document.getElementById('phone-error').style.display = 'block';
+                phoneInput.classList.add('input-error');
+                isValid = false;
+            }
+        }
+        
+        // If form is valid, show confirmation and submit
+        if (isValid) {
+            alert('Form submitted successfully!');
+            // In a real implementation, you would submit the form here
+            // contactForm.submit();
+        }
+        
+        return isValid;
+    }
+    
+    // Add form submission handler
+    contactForm.addEventListener('submit', validateForm);
+    
+    // Add real-time validation for better user experience
+    formInputs.forEach(function(input) {
+        input.addEventListener('blur', function() {
+            // Trigger validation when user leaves an input field
+            var event = { preventDefault: function() {} };
+            validateForm(event);
+        });
+    });
+}
+
+// Run setup functions when page loads
+window.onload = function() {
+    setupDarkModeToggle();
+    setupFormValidation();
+};
+    </script>
+
+    <footer>
+        <p>&copy; 2025 KliqFest. All rights reserved.</p>
+        <a href="https://kliqbrand.com">Visit Kliq Brand</a>
+    </footer>
+</body>
+</html>
