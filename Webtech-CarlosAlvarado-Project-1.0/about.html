@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About KliqFest</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+  </head>
+  <body>
+    <header>
+      <h1>About KliqFest</h1>
+      <nav>
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown">
+            <a href="signups.html" class="dropbtn">Sign Ups</a>
+            <div class="dropdown-content">
+              <a href="signups.html #team-signup">Team Sign Up</a>
+              <a href="signups.htm l#vendor-signup">Vendor Sign Up</a>
+              <a href="signups.html #volunteer-signup">Volunteer Sign Up</a>
+            </div>
+          </li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="about-section">
+      <h2>About</h2>
+      <p>
+        A hub website for all things KliqFest, a soccer tournament and block
+        party with food, art, and clothing vendors, among other organizations
+        and sponsors.
+      </p>
+    </section>
+    <section id="history-section">
+      <h2>History</h2>
+      <p>
+        KliqFest started as a small community event and has grown into a
+        celebrated annual festival, bringing together soccer enthusiasts and
+        local vendors.
+      </p>
+    </section>
+    <section id="mission-section">
+      <h2>Mission</h2>
+      <p>
+        Our mission is to create a vibrant community event that celebrates
+        soccer, local culture, and the arts while supporting local businesses
+        and fostering community spirit.
+      </p>
+    </section>
+    <script>
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('mouseover', function() {
+        this.style.fontSize = '24px';
+        this.style.color = '#3498db'; 
+        this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+
+    anchor.addEventListener('mouseout', function() {
+        this.style.fontSize = '16px';
+        this.style.color = ''; 
+        this.style.boxShadow = ''; 
+    });
+});
+
+document.querySelectorAll('section').forEach(section => {
+    section.addEventListener('mouseover', function() {
+        this.style.transform = 'scale(1.05)';
+        this.style.transition = 'transform 0.3s ease';
+    });
+
+    section.addEventListener('mouseout', function() {
+        this.style.transform = 'scale(1)';
+    });
+});
+function setupDarkModeToggle() {
+
+var toggleButton = document.createElement('button');
+toggleButton.id = 'dark-mode-toggle';
+toggleButton.textContent = 'Toggle Dark Mode';
+toggleButton.style.position = 'fixed';
+toggleButton.style.top = '10px';
+toggleButton.style.right = '10px';
+toggleButton.style.padding = '8px';
+toggleButton.style.cursor = 'pointer';
+
+document.body.appendChild(toggleButton);
+
+
+var darkModeStyle = document.createElement('style');
+darkModeStyle.id = 'dark-mode-styles';
+darkModeStyle.textContent = `
+  body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  body.dark-mode header, body.dark-mode footer {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+  }
+  body.dark-mode a {
+    color: #81d4fa;
+  }
+  body.dark-mode input, body.dark-mode select, body.dark-mode textarea {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+  body.dark-mode button {
+    background-color: #2c3e50;
+    color: #e0e0e0;
+  }
+  body.dark-mode nav ul li a {
+    color: #e0e0e0;
+  }
+`;
+document.head.appendChild(darkModeStyle);
+
+
+var isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+
+if (isDarkMode) {
+  document.body.classList.add('dark-mode');
+  toggleButton.textContent = 'Toggle Light Mode';
+}
+
+
+function toggleDarkMode() {
+  if (document.body.classList.contains('dark-mode')) {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'false');
+    toggleButton.textContent = 'Toggle Dark Mode';
+  } else {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'true');
+    toggleButton.textContent = 'Toggle Light Mode';
+  }
+}
+
+toggleButton.onclick = toggleDarkMode;
+}
+
+window.onload = setupDarkModeToggle;
+  });
+
+    </script>
+   
+    <footer>
+      <p>&copy; 2025 KliqFest. All rights reserved.</p>
+      <a href="https://kliqbrand.com">Visit Kliq Brand</a>
+      <div class="social-media">
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+      </div>
+    </footer>
+  </body>
+</html>
